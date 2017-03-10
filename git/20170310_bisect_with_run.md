@@ -1,4 +1,4 @@
-# Git - bisect with automatic run
+# Git - Bisect with automatic run
 
 The other day I had made several commits to a feature branch. While I coded, I
 only ran the test files associated with the code I wrote.
@@ -22,7 +22,7 @@ Start git bisect, then tell it which commit is bad and which is good:
 ```
 git bisect start
 git bisect bad         # Current commit is "bad" because it has a broken test
-git bisect good master # master is good, because no test fails in master
+git bisect good master # master is "good", because no test fails in master
 ```
 
 After this series of commands, git has now checked out a commit that is
@@ -45,6 +45,9 @@ git bisect good
 
 Either way, git will now take me to the next commit I should check, just like
 when doing a binary search.
+
+I will then repeat the process of finding out if the current commit is good or
+bad until git tells me it has found the first bad commit.
 
 This is all good, but a lot of manual typing. There must be a better way.
 Spoiler: There is! :)
