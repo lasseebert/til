@@ -62,7 +62,8 @@ The script should exit with code 0 if the commit is good and any other code if
 it's bad (some exit codes have special meaning in git bisect, but I'll leave that
 out here).
 
-In my case I would simply run my tests:
+In my case I would simply run my tests. Normally I run them with `mix test` so
+I just prepend `git bisect run` to that:
 
 ```
 git bisect run mix test
@@ -71,6 +72,14 @@ git bisect run mix test
 Then git bisect will do a binary search along several commits and run my
 command for each one. When it's done it will tell me which commit was the first
 bad one. Nice.
+
+Note: When running a command that is more than a simple script. E.g. multiple
+scripts concatinated with `&&`, you should either put it in an executable
+script or run it as an inline bash script like so:
+
+```
+git bisect run bash -c "mix test && mix credo"
+```
 
 ## What's next
 
