@@ -46,8 +46,8 @@ To specify this in Distillery I need to first add a vm_args file in which we als
 -kernel inet_dist_listen_max 9000
 ```
 
-Then in the release config set the `vm_args` attribuet to point to this file.
-Also set a `overlay_vars` which are the variables exposed in the vm_args file:
+Then in the release config set the `vm_args` attribute to point to this file.
+Also set an `overlay_vars` which are the variables exposed in the vm_args file:
 
 ```
 set vm_args: "rel/vm_args"
@@ -67,7 +67,7 @@ Start a local iex session where you specify a name and the same cookie as used i
 iex --name debug@127.0.0.1 --cookie mysupersecret cookie
 ```
 
-Then connect to the node at start observer:
+Then connect to the node and start observer:
 
 ```
 iex(debug@127.0.0.1)1> Node.connect(:"my_app@my_site.com")
