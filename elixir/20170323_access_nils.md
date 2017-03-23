@@ -42,8 +42,8 @@ nil                 <-- WTF is going on??!!!one1!!!
 I went investigating. I knew about the Access module, but had never studied it before. So I went straight to the source
 code.
 
-It seems that the `[]` syntax calls the `Access.get/3` function with the third `default` defaulting to `nil`.
-`Access.get/3` calls `Access.fetch/2` function, which is defined to work on:
+It seems that the `[]` syntax calls the `Access.get/3` function with the third parameter, `default`, defaulting to `nil`.
+`Access.get/3` calls `Access.fetch/2`, which is defined to work on:
 
 * Structs
 * Maps
@@ -54,13 +54,17 @@ So this is why `nil[:a] == nil`.
 
 ## Lesson learned
 
-Use the more explicit `Map.get/3` when explicitness is needed:
+Use the more explicit `Map.get/3`, `Map.fetch/2` and `Map.fetch!/2` when explicitness is needed:
 
 ```
 iex(5)> Map.get(nil, :a)
 ** (BadMapError) expected a map, got: nil
     (stdlib) :maps.find(:a, nil)
     (elixir) lib/map.ex:234: Map.get/3
+
+iex(6)> Map.fetch!(%{}, :a)
+** (KeyError) key :a not found in: %{}
+    (elixir) lib/map.ex:255: Map.fetch!/2
 ```
 
 I will continue using the Access syntax in my tests, since I just need to assert that the entire expression is some
