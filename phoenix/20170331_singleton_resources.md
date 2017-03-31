@@ -14,7 +14,7 @@ this is changed to a set of resource routes without an id.
 To define the routes above as a singleton resource do this:
 
 ```elixir
-resources "/profile", ProfileController, only: [:get, :update], singleton: true
+resources "/profile", ProfileController, only: [:show, :update], singleton: true
 ```
 
 Singleton routes are also commonly used as nested routes.
@@ -23,7 +23,7 @@ Imagine a user resource that has-one `UserSettings` which can be showed and upda
 
 ```elixir
 resource "/users", UserController do
-  resources "/settings", UserSettingsController, only: [:get, :update], singleton: true
+  resources "/settings", UserSettingsController, only: [:show, :update], singleton: true
 end
 ```
 
