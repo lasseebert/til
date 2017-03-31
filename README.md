@@ -9,6 +9,10 @@ A collection of stuff I learned.
 * 2017-03-14: [Running observer on a production node](elixir/20170314_observer_to_production.md)
 * 2017-03-23: [The Access module and nils](elixir/20170323_access_nils.md)
 
-# Git
+## Phoenix
+
+* 2017-03-31 [Singleton resources](phoenix/20170331_singleton_resources.md)
+
+## Git
 
 * 2017-03-10 [Git bisect with run](git/20170310_bisect_with_run.md)
