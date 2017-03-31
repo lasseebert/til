@@ -22,7 +22,7 @@ Singleton routes are also commonly used as nested routes.
 Imagine a user resource that has-one `UserSettings` which can be showed and updated:
 
 ```elixir
-resource "/users", UserController do
+resources "/users", UserController do
   resources "/settings", UserSettingsController, only: [:show, :update], singleton: true
 end
 ```
