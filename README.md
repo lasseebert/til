@@ -9,6 +9,7 @@ A collection of stuff I learned.
 * 2017-03-14: [Running observer on a production node](elixir/20170314_observer_to_production.md)
 * 2017-03-23: [The Access module and nils](elixir/20170323_access_nils.md)
 * 2017-04-19: [Traversing an AST](elixir/20170419_traversing_ast.md)
+* 2017-04-20: [Tip: Console helper module](elixir/20170420_console.md)
 
 ## Phoenix
 
