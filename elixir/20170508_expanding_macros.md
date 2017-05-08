@@ -2,8 +2,9 @@
 
 Today I learned a thing about macros and how they expand.
 
-I thought that the Elixir AST at compile time would expand any macros until only non-macro code was left. But I was wrong.
-But Elixir will only expand nested macros, when the inner most macro call is the body of the outer macro.
+I thought that the Elixir AST at compile time would expand any macros until only non-macro code was left.
+
+But I was wrong. Elixir will only expand nested macros, when the inner most macro call is the body of the outer macro.
 
 As an example look at this code:
 
@@ -29,7 +30,7 @@ defmodule Macros do
 end
 ```
 
-We can use `Macro.expand/2` and `Macro.to_string` to see how the macros expand:
+We can use `Macro.expand/2` and `Macro.to_string/1` to see how the macros expand:
 
 ```elixir
 iex(4)> quote(do: Macros.delegate_to_forty_two) |> Macro.expand(__ENV__) |> Macro.to_string
@@ -40,7 +41,7 @@ This fully expands to `42`. When trying with `Macros.does_not_fully_expand` in w
 expression, we will get another result:
 
 ```elixir
-iex(5)> quote(do: Macros.does_not_fully_expand) |> Macro.expand(__ENV__) |> Macro.to_string 
+iex(5)> quote(do: Macros.does_not_fully_expand) |> Macro.expand(__ENV__) |> Macro.to_string
 "Macros.forty_two() + Macros.forty_two()"
 ```
 
