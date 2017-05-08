@@ -10,6 +10,7 @@ A collection of stuff I learned.
 * 2017-03-23: [The Access module and nils](elixir/20170323_access_nils.md)
 * 2017-04-19: [Traversing an AST](elixir/20170419_traversing_ast.md)
 * 2017-04-20: [Tip: Console helper module](elixir/20170420_console.md)
+* 2017-05-08: [Expanding macros](elixir/20170508_expanding_macros.md)
 
 ## Phoenix
 
